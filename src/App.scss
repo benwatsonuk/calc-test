@@ -1,18 +1,5 @@
 .App {
   text-align: center;
-
-  .calc__button {
-    width: 5em;
-    height: 5em;
-
-    &--numeric {
-      background: white;
-    }
-
-    &--operator {
-      background: yellow;
-    }
-  }
 }
 
 @keyframes App-logo-spin {

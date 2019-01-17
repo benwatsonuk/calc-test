@@ -1,0 +1,14 @@
+.buttons {
+  .calc__button {
+    width: 5em;
+    height: 5em;
+
+    &--numeric {
+      background: white;
+    }
+
+    &--operator {
+      background: yellow;
+    }
+  }
+}
