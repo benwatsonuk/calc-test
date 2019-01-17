@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Screen from './components/Screen';
 import Buttons from './components/Buttons';
+import operations from './logic/operations'
 import './App.scss';
 
 class App extends Component {
@@ -30,9 +31,13 @@ class App extends Component {
         } else if (type === 'operator' && value === 'equals') {
             this.setState({lastButtonType: null})
             this.setState({operator: null})
+            this.setState({total: operations(this.state.total, this.state.numberToOperateWith, this.state.operator)})
+
         } else {
             this.setState({operator: value})
             this.setState({lastButtonType: type})
+            this.setState({total: operations(this.state.total, this.state.numberToOperateWith, this.state.operator)})
+
         }
     }
 
