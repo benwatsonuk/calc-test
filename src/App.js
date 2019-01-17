@@ -6,13 +6,25 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            total: 0
+            total: 0,
+            lastButtonType: null
         };
+    }
+
+    handleClick = (value, type) => {
+        if (type === 'numeric') {
+            this.setState({lastButtonType:type})
+        } else if (type === 'operator' && value === 'equals') {
+            this.setState({lastButtonType:null})
+        } else {
+            this.setState({lastButtonType:type})
+        }
     }
 
     renderButton = function (value, type) {
         return <button
-            className={"calc__button calc__button--" + type}>
+            className={"calc__button calc__button--" + type}
+            onClick={this.handleClick.bind(this, value, type)}>
             {value}
         </button>
     }
