@@ -1,8 +1,6 @@
 import Big from 'big.js'
 
 export default function operators(numberOne, numberTwo, operation) {
-    console.log('n1: ' + numberOne)
-    console.log('n2: ' + numberTwo)
     operation = operation || false
     switch (operation) {
         case 'plus':

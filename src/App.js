@@ -35,9 +35,10 @@ class App extends Component {
 
         } else {
             this.setState({operator: value})
+            if (this.state.lastButtonType === 'numeric') {
+                this.setState({total: operations(this.state.total, this.state.numberToOperateWith, this.state.operator)})
+            }
             this.setState({lastButtonType: type})
-            this.setState({total: operations(this.state.total, this.state.numberToOperateWith, this.state.operator)})
-
         }
     }
 
