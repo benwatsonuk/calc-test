@@ -2,41 +2,12 @@ import React from "react";
 import "./Buttons.scss";
 
 class Buttons extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            lastButtonType: null,
-            operator: null,
-            numberToOperateWith: null
-        };
-    }
-
-    handleClick = (value, type) => {
-        //@todo add decimal handler?
-        if (type === 'numeric') {
-            this.setState({lastButtonType: type})
-            if (this.state.lastButtonType === 'numeric') {
-                if (this.state.numberToOperateWith !== 0) {
-                    this.setState({numberToOperateWith: this.state.numberToOperateWith.toString() + value.toString()})
-                } else {
-                    this.setState({numberToOperateWith: value})
-                }
-            } else {
-                this.setState({numberToOperateWith: value})
-            }
-        } else if (type === 'operator' && value === 'equals') {
-            this.setState({lastButtonType: null})
-            this.setState({operator: null})
-        } else {
-            this.setState({operator: value})
-            this.setState({lastButtonType: type})
-        }
-    }
 
     renderButton = function (value, type) {
         return <button
             className={"calc__button calc__button--" + type}
-            onClick={this.handleClick.bind(this, value, type)}>
+            onClick={() => this.props.onClick(value, type)}
+            >
             {value}
         </button>
     }
