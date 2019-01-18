@@ -9,19 +9,19 @@ describe('operators()', () => {
     //     expect(operations).to.throw.object;
     // })
     it('should add two simple numbers together', () => {
-        const operations = operators(1,2,'plus');
+        const operations = operators(1, 2, 'plus');
         expect(operations).to.equal('3');
     })
     it('should subtract two simple numbers', () => {
-        const operations = operators(3,2,'minus');
+        const operations = operators(3, 2, 'minus');
         expect(operations).to.equal('1');
     })
     it('should multiply two simple numbers', () => {
-        const operations = operators(2,2,'multiply');
+        const operations = operators(2, 2, 'multiply');
         expect(operations).to.equal('4');
     })
     it('should divide two simple numbers', () => {
-        const operations = operators(4,2,'divide');
+        const operations = operators(4, 2, 'divide');
         expect(operations).to.equal('2');
     })
     // @todo - add a few more complex sums to test
