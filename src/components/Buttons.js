@@ -16,7 +16,7 @@ class Buttons extends React.Component {
         return (
             <div className="buttons">
                 <div className="numericButtons">
-                    {this.renderButton('decimal', 'numeric')}
+                    {/*{this.renderButton('decimal', 'numeric')}*/}
                     {this.renderButton(0, 'numeric')}
                     {this.renderButton(1, 'numeric')}
                     {this.renderButton(2, 'numeric')}

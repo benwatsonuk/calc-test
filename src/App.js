@@ -31,15 +31,17 @@ class App extends Component {
             } else {
                 this.setState({numberToOperateWith: value})
             }
+        } else if (type === 'operator' && value !== 'equals') {
+            this.setState({operator: value})
+            this.setState({lastButtonType: type})
+            if (this.state.numberToOperateWith !== null && this.state.operator !== null) {
+                this.setState({total: operations(this.state.total, this.state.numberToOperateWith, this.state.operator)})
+                this.setState({numberToOperateWith: null})
+            }
         } else if (type === 'operator' && value === 'equals') {
             this.setState({lastButtonType: null})
             this.setState({operator: null})
-            this.setState({total: operations(this.state.total, this.state.numberToOperateWith, this.state.operator)})
-
-        } else {
-            this.setState({operator: value})
-            this.setState({lastButtonType: type})
-
+            this.setState({numberToOperateWith: null})
             this.setState({total: operations(this.state.total, this.state.numberToOperateWith, this.state.operator)})
 
         }
