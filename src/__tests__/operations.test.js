@@ -1,7 +1,5 @@
 import React from 'react';
 import {expect} from 'chai';
-import {shallow, mount, render} from 'enzyme';
-import sinon from 'sinon'
 import operators from '../logic/operations';
 
 describe('operators()', () => {
@@ -26,4 +24,5 @@ describe('operators()', () => {
         const operations = operators(4,2,'divide');
         expect(operations).to.equal('2');
     })
+    // @todo - add a few more complex sums to test
 });
