@@ -18,6 +18,9 @@ class App extends Component {
     handleClick = (value, type) => {
         //@todo add decimal handler?
         if (type === 'numeric') {
+            if (this.state.lastButtonType === null) {
+                this.setState({total: value})
+            }
             this.setState({lastButtonType: type})
             if (this.state.lastButtonType === 'numeric') {
                 if (this.state.numberToOperateWith !== 0) {
@@ -35,10 +38,10 @@ class App extends Component {
 
         } else {
             this.setState({operator: value})
-            if (this.state.lastButtonType === 'numeric') {
-                this.setState({total: operations(this.state.total, this.state.numberToOperateWith, this.state.operator)})
-            }
             this.setState({lastButtonType: type})
+
+            this.setState({total: operations(this.state.total, this.state.numberToOperateWith, this.state.operator)})
+
         }
     }
 
@@ -46,7 +49,7 @@ class App extends Component {
         return (
             <div className="App">
                 <Screen total={this.state.total}/>
-                <Buttons total={this.state.total} onClick={(value, type) => this.handleClick(value, type)} />
+                <Buttons total={this.state.total} onClick={(value, type) => this.handleClick(value, type)}/>
             </div>
         );
     }
