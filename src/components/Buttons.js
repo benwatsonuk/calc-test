@@ -3,6 +3,10 @@ import "./Buttons.scss";
 
 class Buttons extends React.Component {
 
+    // @todo add cancel button
+    // @todo add decimal button
+    // @todo add memory button?
+
     renderButton = function (value, type) {
         return <button
             className={"calc__button calc__button--" + type}

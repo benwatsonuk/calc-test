@@ -18,8 +18,12 @@ class App extends Component {
     handleClick = (value, type) => {
         //@todo add decimal handler?
         if (type === 'numeric') {
-            if (this.state.lastButtonType === null) {
-                this.setState({total: value})
+            if (this.state.operator === null) {
+                if (this.state.numberToOperateWith !== null) {
+                    this.setState({total: this.state.numberToOperateWith.toString() + value.toString()})
+                } else {
+                    this.setState({total: value.toString()})
+                }
             }
             this.setState({lastButtonType: type})
             if (this.state.lastButtonType === 'numeric') {
@@ -39,11 +43,9 @@ class App extends Component {
                 this.setState({numberToOperateWith: null})
             }
         } else if (type === 'operator' && value === 'equals') {
-            this.setState({lastButtonType: null})
-            this.setState({operator: null})
-            this.setState({numberToOperateWith: null})
-            this.setState({total: operations(this.state.total, this.state.numberToOperateWith, this.state.operator)})
-
+            if (this.state.operator !== null) {
+                this.setState({total: operations(this.state.total, this.state.numberToOperateWith, this.state.operator)})
+            }
         }
     }
 
