@@ -19,7 +19,6 @@ class Buttons extends React.Component {
     render() {
         return (
             <div className="buttons">
-                <div className="numericButtons">
                     {/*{this.renderButton('decimal', 'numeric')}*/}
                     {this.renderButton(0, 'numeric')}
                     {this.renderButton(1, 'numeric')}
@@ -31,14 +30,11 @@ class Buttons extends React.Component {
                     {this.renderButton(7, 'numeric')}
                     {this.renderButton(8, 'numeric')}
                     {this.renderButton(9, 'numeric')}
-                </div>
-                <div className="operatorButtons">
                     {this.renderButton('plus', 'operator')}
                     {this.renderButton('minus', 'operator')}
                     {this.renderButton('multiply', 'operator')}
                     {this.renderButton('divide', 'operator')}
                     {this.renderButton('equals', 'operator')}
-                </div>
             </div>
         );
     }
