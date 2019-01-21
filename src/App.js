@@ -11,7 +11,9 @@ class App extends Component {
             total: 0,
             lastButtonType: null,
             operator: null,
-            numberToOperateWith: null
+            operatorPrevious: null,
+            numberToOperateWith: null,
+            isFirstOperation: true
         };
     }
 
@@ -20,7 +22,9 @@ class App extends Component {
             total: 0,
             lastButtonType: null,
             operator: null,
-            numberToOperateWith: null
+            operatorPrevious: null,
+            numberToOperateWith: null,
+            isFirstOperation: true
         });
     };
 
@@ -33,7 +37,6 @@ class App extends Component {
                     this.setState({total: value.toString()})
                 }
             }
-            this.setState({lastButtonType: type});
             if (this.state.lastButtonType === 'numeric') {
                 if (this.state.numberToOperateWith !== 0) {
                     this.setState({numberToOperateWith: this.state.numberToOperateWith.toString() + value.toString()})
@@ -43,21 +46,33 @@ class App extends Component {
             } else {
                 this.setState({numberToOperateWith: value})
             }
+            this.setState({lastButtonType: type});
         } else if (type === 'operator') {
+            let operatorPrev;
+            if (this.state.operatorPrevious === null) {
+                operatorPrev = this.state.operator
+            } else if (value === 'equals') {
+                operatorPrev = this.state.operatorPrevious
+            } else this.setState({
+                operator: value,
+                operatorPrevious: operatorPrev
+            });
+            this.setState({lastButtonType: type});
+
             if (value === 'equals') {
-                if (this.state.operator !== null) {
-                    this.setState({total: operations(this.state.total, this.state.numberToOperateWith, this.state.operator)})
-                }
+                // if (this.state.operatorPrevious !== null) {
+                // (operatorPrev === 'equals') ? operatorPrev = this.state.operatorPrevious;
+                    this.setState({
+                        total: operations(this.state.total, this.state.numberToOperateWith, this.state.operator),
+                        operatorPrevious: operatorPrev
+                    })
+                // }
             } else if (value === 'cancel') {
                 this.clearAll()
-            } else if (value === 'equals') {
-                if (this.state.operator !== null) {
-                    this.setState({total: operations(this.state.total, this.state.numberToOperateWith, this.state.operator)})
-                }
             } else {
                 this.setState({operator: value});
                 this.setState({lastButtonType: type});
-                if (this.state.numberToOperateWith !== null && this.state.operator !== null) {
+                if (this.state.numberToOperateWith !== null && this.state.operator !== null && this.state.lastButtonType !== 'operator') {
                     this.setState({total: operations(this.state.total, this.state.numberToOperateWith, this.state.operator)});
                     this.setState({numberToOperateWith: null})
                 }
