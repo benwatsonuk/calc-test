@@ -1,6 +1,6 @@
-#Basic calculator built using React
+# Basic calculator built using React
 
-##To install and run
+## To install and run
 
 Clone the repository and run
 
@@ -12,5 +12,8 @@ After all required packages are installed run
 
 That's it! Navigate to the stated port and try out some basic calculations.
 
+### Notes
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+I wouldn't recommend using this calculator for anything important 😂 
