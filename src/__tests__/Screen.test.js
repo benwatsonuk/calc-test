@@ -8,7 +8,7 @@ describe('<Screen />', () => {
         const wrapper = shallow(<Screen total="10"/>);
         expect(wrapper.find('.screen')).to.have.lengthOf(1);
         expect(wrapper.props().children[1]['props'].children).to.equal('10');
-    })
+    });
     it('renders a screen with EE branding', () => {
         const wrapper = shallow(<Screen total="10"/>);
         expect(wrapper.find('.screen')).to.have.lengthOf(1);
