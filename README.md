@@ -1,6 +1,6 @@
 # Basic calculator built using React
 
-The calculator can be seen in action at (http://benwatson.uk/work/calc/)
+The calculator can be seen in action at http://benwatson.uk/work/calc/
 
 ## To install and run
 
