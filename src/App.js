@@ -50,11 +50,13 @@ class App extends Component {
                 }
             } else if (value === 'cancel') {
                 this.clearAll()
+            } else if (value === 'equals') {
+                if (this.state.operator !== null) {
+                    this.setState({total: operations(this.state.total, this.state.numberToOperateWith, this.state.operator)})
+                }
             } else {
-                this.setState({
-                    operator: value,
-                    lastButtonType: type
-                })
+                this.setState({operator: value})
+                this.setState({lastButtonType: type})
                 if (this.state.numberToOperateWith !== null && this.state.operator !== null) {
                     this.setState({total: operations(this.state.total, this.state.numberToOperateWith, this.state.operator)})
                     this.setState({numberToOperateWith: null})
