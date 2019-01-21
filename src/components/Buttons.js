@@ -14,7 +14,7 @@ class Buttons extends React.Component {
                 {value}
             </span>
         </button>
-    }
+    };
 
     render() {
         return (

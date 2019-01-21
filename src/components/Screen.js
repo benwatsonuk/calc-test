@@ -7,7 +7,7 @@ class Screen extends React.Component {
         return (
             <div className="screen">
                 <div className="screen__branding">
-                    <img src={logo} />
+                    <img src={logo} alt="Equal Experts logo"/>
                 </div>
                 <div className="screen__display">
                     {this.props.total}

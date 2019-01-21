@@ -10,7 +10,5 @@ export default function operators(numberOne, numberTwo, operation) {
         return new Big(numberOne).div(numberTwo).toString();
     } else if (operation === 'multiply') {
         return new Big(numberOne).times(numberTwo).toString();
-    } else {
-        throw {error: 'No operator passed to function'}
     }
 }

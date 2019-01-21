@@ -22,7 +22,7 @@ class App extends Component {
             operator: null,
             numberToOperateWith: null
         });
-    }
+    };
 
     handleClick = (value, type) => {
         if (type === 'numeric') {
@@ -33,7 +33,7 @@ class App extends Component {
                     this.setState({total: value.toString()})
                 }
             }
-            this.setState({lastButtonType: type})
+            this.setState({lastButtonType: type});
             if (this.state.lastButtonType === 'numeric') {
                 if (this.state.numberToOperateWith !== 0) {
                     this.setState({numberToOperateWith: this.state.numberToOperateWith.toString() + value.toString()})
@@ -55,15 +55,15 @@ class App extends Component {
                     this.setState({total: operations(this.state.total, this.state.numberToOperateWith, this.state.operator)})
                 }
             } else {
-                this.setState({operator: value})
-                this.setState({lastButtonType: type})
+                this.setState({operator: value});
+                this.setState({lastButtonType: type});
                 if (this.state.numberToOperateWith !== null && this.state.operator !== null) {
-                    this.setState({total: operations(this.state.total, this.state.numberToOperateWith, this.state.operator)})
+                    this.setState({total: operations(this.state.total, this.state.numberToOperateWith, this.state.operator)});
                     this.setState({numberToOperateWith: null})
                 }
             }
         }
-    }
+    };
 
     render() {
         return (
@@ -72,7 +72,7 @@ class App extends Component {
                 <Buttons total={this.state.total} onClick={(value, type) => this.handleClick(value, type)}/>
             </div>
         );
-    }
+    };
 }
 
 export default App;

@@ -123,3 +123,28 @@ describe('<App />', () => {
         expect(wrapper.state().total).to.equal('0.2');
     });
 });
+
+describe('<App /> chained equations', () => {
+    it('(5 + 5) x 2 should equal 20', () => {
+        const wrapper = mount(<App/>);
+        wrapper.find('.calc__button--numeric').at(5).simulate('click');
+        wrapper.find('.calc__button--operator').at(0).simulate('click');
+        wrapper.find('.calc__button--numeric').at(5).simulate('click');
+        wrapper.find('.calc__button--operator').at(4).simulate('click');
+        wrapper.find('.calc__button--operator').at(2).simulate('click');
+        wrapper.find('.calc__button--numeric').at(2).simulate('click');
+        wrapper.find('.calc__button--operator').at(4).simulate('click');
+        expect(wrapper.state().total).to.equal('20');
+    });
+    it('(5 + 5) (then cancelled) x 2 should equal 0', () => {
+        const wrapper = mount(<App/>);
+        wrapper.find('.calc__button--numeric').at(5).simulate('click');
+        wrapper.find('.calc__button--operator').at(0).simulate('click');
+        wrapper.find('.calc__button--numeric').at(5).simulate('click');
+        wrapper.find('.calc__button--operator').at(5).simulate('click');
+        wrapper.find('.calc__button--operator').at(2).simulate('click');
+        wrapper.find('.calc__button--numeric').at(2).simulate('click');
+        wrapper.find('.calc__button--operator').at(4).simulate('click');
+        expect(wrapper.state().total).to.equal('0');
+    });
+});
