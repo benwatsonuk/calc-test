@@ -15,8 +15,16 @@ class App extends Component {
         };
     }
 
+    clearAll = () => {
+        this.setState({
+            total: 0,
+            lastButtonType: null,
+            operator: null,
+            numberToOperateWith: null
+        });
+    }
+
     handleClick = (value, type) => {
-        //@todo add decimal handler?
         if (type === 'numeric') {
             if (this.state.operator === null) {
                 if (this.state.numberToOperateWith !== null) {
@@ -35,16 +43,24 @@ class App extends Component {
             } else {
                 this.setState({numberToOperateWith: value})
             }
-        } else if (type === 'operator' && value !== 'equals') {
-            this.setState({operator: value})
-            this.setState({lastButtonType: type})
-            if (this.state.numberToOperateWith !== null && this.state.operator !== null) {
-                this.setState({total: operations(this.state.total, this.state.numberToOperateWith, this.state.operator)})
-                this.setState({numberToOperateWith: null})
-            }
-        } else if (type === 'operator' && value === 'equals') {
-            if (this.state.operator !== null) {
-                this.setState({total: operations(this.state.total, this.state.numberToOperateWith, this.state.operator)})
+        } else if (type === 'operator') {
+            if (value === 'equals') {
+                if (this.state.operator !== null) {
+                    this.setState({total: operations(this.state.total, this.state.numberToOperateWith, this.state.operator)})
+                }
+            } else if (value === 'cancel') {
+                this.clearAll()
+            } else if (value === 'equals') {
+                if (this.state.operator !== null) {
+                    this.setState({total: operations(this.state.total, this.state.numberToOperateWith, this.state.operator)})
+                }
+            } else {
+                this.setState({operator: value})
+                this.setState({lastButtonType: type})
+                if (this.state.numberToOperateWith !== null && this.state.operator !== null) {
+                    this.setState({total: operations(this.state.total, this.state.numberToOperateWith, this.state.operator)})
+                    this.setState({numberToOperateWith: null})
+                }
             }
         }
     }
