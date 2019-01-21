@@ -35,6 +35,7 @@ class Buttons extends React.Component {
                     {this.renderButton('multiply', 'operator')}
                     {this.renderButton('divide', 'operator')}
                     {this.renderButton('equals', 'operator')}
+                    {this.renderButton('cancel', 'operator')}
             </div>
         );
     }
