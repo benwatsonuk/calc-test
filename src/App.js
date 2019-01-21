@@ -12,8 +12,7 @@ class App extends Component {
             lastButtonType: null,
             operator: null,
             operatorPrevious: null,
-            numberToOperateWith: null,
-            isFirstOperation: true
+            numberToOperateWith: null
         };
     }
 
@@ -23,8 +22,7 @@ class App extends Component {
             lastButtonType: null,
             operator: null,
             operatorPrevious: null,
-            numberToOperateWith: null,
-            isFirstOperation: true
+            numberToOperateWith: null
         });
     };
 
@@ -41,7 +39,7 @@ class App extends Component {
                 if (this.state.numberToOperateWith !== 0) {
                     this.setState({numberToOperateWith: this.state.numberToOperateWith.toString() + value.toString()})
                 } else {
-                    this.setState({numberToOperateWith: value})
+                    this.setState({numberToOperateWith: value.toString()})
                 }
             } else {
                 this.setState({numberToOperateWith: value})
@@ -74,7 +72,7 @@ class App extends Component {
                 this.setState({lastButtonType: type});
                 if (this.state.numberToOperateWith !== null && this.state.operator !== null && this.state.lastButtonType !== 'operator') {
                     this.setState({total: operations(this.state.total, this.state.numberToOperateWith, this.state.operator)});
-                    this.setState({numberToOperateWith: null})
+                    // this.setState({numberToOperateWith: null})
                 }
             }
         }

@@ -1,15 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {expect} from 'chai';
 import {shallow, mount, render} from 'enzyme';
 import App from '../App';
 
 describe('<App />', () => {
-    it('renders without crashing', () => {
-        const div = document.createElement('div');
-        ReactDOM.render(<App/>, div);
-        ReactDOM.unmountComponentAtNode(div);
-    });
     it('should mount with total of 0', () => {
         const wrapper = shallow(<App/>);
         expect(wrapper.state().total).to.equal(0);
@@ -31,6 +25,12 @@ describe('<App />', () => {
         wrapper.find('.calc__button--numeric').at(2).simulate('click');
         wrapper.find('.calc__button--numeric').at(0).simulate('click');
         expect(wrapper.state().numberToOperateWith).to.equal('20');
+    });
+    it('should construct one digit number if 0 is pressed first', () => {
+        const wrapper = mount(<App/>);
+        wrapper.find('.calc__button--numeric').at(0).simulate('click');
+        wrapper.find('.calc__button--numeric').at(2).simulate('click');
+        expect(wrapper.state().numberToOperateWith).to.equal('2');
     });
     it('should return total when equals is clicked', () => {
         const wrapper = mount(<App/>);
@@ -121,6 +121,30 @@ describe('<App />', () => {
         wrapper.find('.calc__button--operator').at(4).simulate('click');
         wrapper.find('.calc__button--operator').at(4).simulate('click');
         expect(wrapper.state().total).to.equal('0.2');
+    });
+    it('should reset all states when \'C\' is clicked', () => {
+        const wrapper = mount(<App/>);
+        wrapper.find('.calc__button--numeric').at(5).simulate('click');
+        wrapper.find('.calc__button--operator').at(0).simulate('click');
+        wrapper.find('.calc__button--numeric').at(5).simulate('click');
+        wrapper.find('.calc__button--operator').at(5).simulate('click');
+        wrapper.find('.calc__button--operator').at(2).simulate('click');
+        wrapper.find('.calc__button--numeric').at(2).simulate('click');
+        wrapper.find('.calc__button--operator').at(5).simulate('click');
+        expect(wrapper.state().total).to.equal(0);
+        expect(wrapper.state().lastButtonType).to.equal(null);
+        expect(wrapper.state().operator).to.equal(null);
+        expect(wrapper.state().operatorPrevious).to.equal(null);
+        expect(wrapper.state().numberToOperateWith).to.equal(null);
+    });
+    it('should update total and numberToOperateWith state when operator is clicked', () => {
+        const wrapper = mount(<App/>);
+        wrapper.find('.calc__button--numeric').at(5).simulate('click');
+        wrapper.find('.calc__button--operator').at(0).simulate('click');
+        wrapper.find('.calc__button--numeric').at(5).simulate('click');
+        wrapper.find('.calc__button--operator').at(3).simulate('click');
+        expect(wrapper.state().total).to.equal('10');
+        expect(wrapper.state().numberToOperateWith).to.equal(5);
     });
 });
 
