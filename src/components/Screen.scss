@@ -1,6 +1,14 @@
 .screen {
-  padding: 1em;
+  padding: 1em 0.5em;
   text-align: right;
   font-size: 2.5em;
   color: #fff;
+  display: flex;
+  .screen__branding {
+    width: 20%;
+  }
+  .screen__display {
+    width: 80%;
+    word-break: break-all;
+  }
 }
