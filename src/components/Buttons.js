@@ -1,6 +1,5 @@
 import React from "react";
 import "./Buttons.scss";
-
 class Buttons extends React.Component {
 
     // @todo add cancel button
@@ -11,8 +10,9 @@ class Buttons extends React.Component {
         return <button
             className={"calc__button calc__button--" + type}
             onClick={() => this.props.onClick(value, type)}
-            >
-            {value}
+            ><span className="calc__button--value">
+                {value}
+            </span>
         </button>
     }
 

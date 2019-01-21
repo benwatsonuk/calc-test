@@ -2,19 +2,14 @@
   display: grid;
   grid-template-columns: auto auto auto auto;
   grid-template-rows: auto auto auto auto;
-  justify-content: space-evenly;
-  grid-gap: 5px;
+
   align-content: center;
-  grid-template-areas:
-          'numeric7 numeric8 numeric9 operatorPlus'
-          'numeric4 numeric5 numeric6 operatorMinus'
-          'numeric1 numeric2 numeric3 operatorMultiply'
-          'numeric0 operatorEquals operatorEquals operatorDivide';
+  grid-template-areas: 'numeric7 numeric8 numeric9 operatorPlus' 'numeric4 numeric5 numeric6 operatorMinus' 'numeric1 numeric2 numeric3 operatorMultiply' 'numeric0 operatorEquals operatorEquals operatorDivide';
 
   .calc__button {
-    width: 5em;
     height: 5em;
     text-align: center;
+    font-size: 2em;
 
     &--numeric {
       background: white;
@@ -63,25 +58,56 @@
 
     &--operator {
       background: orange;
+      &:before {
+        content: '';
+        display: block;
+        height: 100%;
+        width: 100%;
+      }
+
+      .calc__button--value {
+        visibility: hidden;
+      }
 
       &:nth-child(11) {
         grid-area: operatorPlus;
+        &:before {
+          background: url(../icons/plus.svg) no-repeat center;
+          background-size: 50% 50%;
+        }
       }
 
       &:nth-child(12) {
         grid-area: operatorMinus;
+        &:before {
+          background: url(../icons/minus.svg) no-repeat center;
+          background-size: 50% 50%;
+        }
       }
 
       &:nth-child(13) {
         grid-area: operatorMultiply;
+        &:before {
+          background: url(../icons/multiply.svg) no-repeat center;
+          background-size: 50% 50%;
+        }
       }
 
       &:nth-child(14) {
         grid-area: operatorDivide;
+
+        &:before {
+          background: url(../icons/divide.svg) no-repeat center;
+          background-size: 50% 50%;
+        }
       }
 
       &:nth-child(15) {
         grid-area: operatorEquals;
+        &:before {
+          background: url(../icons/equals.svg) no-repeat center;
+          background-size: 50% 50%;
+        }
       }
     }
   }
