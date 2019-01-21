@@ -14,6 +14,12 @@ After all required packages are installed run
 
 That's it! Navigate to the stated port and try out some basic calculations.
 
+## To test the application 
+
+The tests for the application can be run by typing
+
+`npm test`
+
 ### Notes
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
