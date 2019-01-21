@@ -2,9 +2,9 @@
 .App {
   text-align: center;
   box-shadow: 0px 0px 25px 0px #333;
-  font-size: 1.25em;
+  font-size: 1em;
+  background: black;
   @media only screen and (min-width: $minWidth) {
-    background: black;
     width:$minWidth;
   }
 }
