@@ -9,9 +9,10 @@ body {
   font-family: "ZCOOL QingKe HuangYou", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(#00c6ff, #0072ff);
+  background: linear-gradient(#FF512F, #f09819);
   #root {
     @media only screen and (min-width: $minWidth) {
+      padding-top: 1vh;
       display: flex;
       align-items: center;
       justify-content: center;
