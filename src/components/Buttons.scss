@@ -73,24 +73,22 @@
       background: orange;
 
       &:before {
-        content: '';
+        font-size: 2em;
         display: block;
         height: 100%;
         width: 100%;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 40% 40%;
+        line-height: $buttonHeight;
       }
 
       .calc__button--value {
-        visibility: hidden;
+        @extend .sr-only
       }
 
       &:nth-child(11) {
         grid-area: operatorPlus;
 
         &:before {
-          background-image: url(../icons/plus.svg);
+          content: "+";
         }
       }
 
@@ -98,7 +96,7 @@
         grid-area: operatorMinus;
 
         &:before {
-          background-image: url(../icons/minus.svg);
+          content: "−";
         }
       }
 
@@ -106,7 +104,7 @@
         grid-area: operatorMultiply;
 
         &:before {
-          background-image: url(../icons/multiply.svg);
+          content: "×";
         }
       }
 
@@ -114,7 +112,7 @@
         grid-area: operatorDivide;
 
         &:before {
-          background-image: url(../icons/divide.svg);
+          content: "÷";
         }
       }
 
@@ -123,7 +121,7 @@
         width: 100%;
 
         &:before {
-          background-image: url(../icons/equals.svg);
+          content: "=";
         }
       }
     }
