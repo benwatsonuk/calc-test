@@ -20,6 +20,10 @@ The tests for the application can be run by typing
 
 `npm test`
 
+To run the tests with coverage:
+
+`npm test -- --coverage`
+
 ### Notes
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
