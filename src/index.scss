@@ -9,7 +9,7 @@ body {
   font-family: "ZCOOL QingKe HuangYou", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(#FF512F, #f09819);
+  background: linear-gradient($backgroundColorTop, $backgroundColorBottom);
   #root {
     @media only screen and (min-width: $minWidth) {
       padding-top: 1vh;

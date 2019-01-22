@@ -23,8 +23,11 @@
       height: $buttonHeight;
     }
 
-    &:active {
-      box-shadow: inset 0 0 130px 0 rgba(0, 0, 0, 0.15)
+    &:focus {
+      box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.15);
+    }
+    &:focus:active {
+      box-shadow: inset 0 0 130px 0 rgba(0, 0, 0, 0.15);
     }
 
     &--numeric {

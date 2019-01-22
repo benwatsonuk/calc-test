@@ -80,7 +80,8 @@ class App extends Component {
 
     render() {
         return (
-            <div className="App">
+            <div className="App" role="main" aria-describedby="info">
+                <div id="info" className="sr-only">This is a simple calculator app that you can use to try out some basic equations. Seriously though, don't use it for anything important... you should have to sign a waiver or something.</div>
                 <Screen total={this.state.total}/>
                 <Buttons total={this.state.total} onClick={(value, type) => this.handleClick(value, type)}/>
             </div>

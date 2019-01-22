@@ -18,7 +18,7 @@ class Buttons extends React.Component {
 
     render() {
         return (
-            <div className="buttons">
+            <div className="buttons" aria-controls="screenDisplay" role="group">
                     {/*{this.renderButton('decimal', 'numeric')}*/}
                     {this.renderButton(0, 'numeric')}
                     {this.renderButton(1, 'numeric')}
