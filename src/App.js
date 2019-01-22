@@ -80,7 +80,7 @@ class App extends Component {
         return (
             <div className="App" role="main" aria-describedby="info">
                 <div id="info" className="sr-only">This is a simple calculator app that you can use to try out some
-                    basic equations. Seriously though, don't use it for anything important... you should have to sign a
+                    basic equations. Seriously though, don&#39;t use it for anything important&#133; you should have to sign a
                     waiver or something.
                 </div>
                 <Screen total={this.state.total}/>
