@@ -5,6 +5,7 @@
   "dependencies": {
     "big.js": "^5.2.2",
     "react": "^16.7.0",
+    "react-a11y": "^1.1.0",
     "react-dom": "^16.7.0",
     "react-scripts": "2.1.3"
   },
