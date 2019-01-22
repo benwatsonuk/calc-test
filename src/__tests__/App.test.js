@@ -146,6 +146,12 @@ describe('<App />', () => {
         expect(wrapper.state().total).to.equal('10');
         expect(wrapper.state().numberToOperateWith).to.equal(5);
     });
+    it('should not error when a number button is followed by equals after init', () => {
+        const wrapper = mount(<App/>);
+        wrapper.find('.calc__button--numeric').at(5).simulate('click');
+        wrapper.find('.calc__button--operator').at(4).simulate('click');
+        expect(wrapper.state().total).to.equal('5');
+    });
 });
 
 describe('<App /> chained equations', () => {

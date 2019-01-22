@@ -58,13 +58,12 @@ class App extends Component {
             this.setState({lastButtonType: type});
 
             if (value === 'equals') {
-                // if (this.state.operatorPrevious !== null) {
-                // (operatorPrev === 'equals') ? operatorPrev = this.state.operatorPrevious;
+                if (this.state.operator !== null) {
                     this.setState({
                         total: operations(this.state.total, this.state.numberToOperateWith, this.state.operator),
                         operatorPrevious: operatorPrev
                     })
-                // }
+                }
             } else if (value === 'cancel') {
                 this.clearAll()
             } else {
@@ -72,7 +71,6 @@ class App extends Component {
                 this.setState({lastButtonType: type});
                 if (this.state.numberToOperateWith !== null && this.state.operator !== null && this.state.lastButtonType !== 'operator') {
                     this.setState({total: operations(this.state.total, this.state.numberToOperateWith, this.state.operator)});
-                    // this.setState({numberToOperateWith: null})
                 }
             }
         }
@@ -81,7 +79,10 @@ class App extends Component {
     render() {
         return (
             <div className="App" role="main" aria-describedby="info">
-                <div id="info" className="sr-only">This is a simple calculator app that you can use to try out some basic equations. Seriously though, don't use it for anything important... you should have to sign a waiver or something.</div>
+                <div id="info" className="sr-only">This is a simple calculator app that you can use to try out some
+                    basic equations. Seriously though, don't use it for anything important... you should have to sign a
+                    waiver or something.
+                </div>
                 <Screen total={this.state.total}/>
                 <Buttons total={this.state.total} onClick={(value, type) => this.handleClick(value, type)}/>
             </div>
