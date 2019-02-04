@@ -1,9 +1,9 @@
-$minWidth: 520px;
-$buttonWidth: 130px;
-$buttonHeight: 130px;
+$minWidth: 400px;
+$buttonWidth: 100px;
+$buttonHeight: 100px;
 $buttonBorderColor: #eaeaea;
-$backgroundColorTop: #FF512F;
-$backgroundColorBottom: #F09819;
+$backgroundColorTop: #1795d4;
+$backgroundColorBottom: darken($backgroundColorTop, 10%);
 
 .sr-only {
   border: 0;
